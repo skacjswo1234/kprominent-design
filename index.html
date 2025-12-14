@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>케이프로미넌트 디자인</title>
+    <style>
+        @font-face {
+            font-family: 'Gmarket Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans@1.0.0/GmarketSans-Bold.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans@1.0.0/GmarketSans-Bold.woff') format('woff');
+            font-display: swap;
+        }
+        * {
+            font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif !important;
+            font-weight: 700 !important;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="logo.png" alt="케이프로미넌트 디자인" class="logo-img">
+                </div>
+                <nav class="desktop-nav">
+                    <a href="#home" class="nav-link">홈</a>
+                    <a href="#service" class="nav-link">서비스소개</a>
+                    <a href="#contact" class="nav-link">문의하기</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <!-- 모바일 메뉴 -->
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-logo">
+                <img src="logo.png" alt="케이프로미넌트 디자인" class="mobile-logo-img">
+            </div>
+            <a href="#home" class="mobile-nav-link">홈</a>
+            <a href="#service" class="mobile-nav-link">서비스소개</a>
+            <a href="#contact" class="mobile-nav-link">문의하기</a>
+        </nav>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    </header>
+
+    <main>
+        <!-- 섹션 1 -->
+        <section id="home" class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-1-m.png">
+                <img src="images/pc/h-1.png" alt="섹션 1">
+            </picture>
+        </section>
+
+        <!-- 섹션 2 -->
+        <section id="service" class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-2-m.png">
+                <img src="images/pc/h-2.png" alt="섹션 2">
+            </picture>
+        </section>
+
+        <!-- 섹션 3 -->
+        <section class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-3-m.png">
+                <img src="images/pc/h-3.png" alt="섹션 3">
+            </picture>
+        </section>
+
+        <!-- 섹션 4 -->
+        <section class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-4-m.png">
+                <img src="images/pc/h-4.png" alt="섹션 4">
+            </picture>
+        </section>
+
+        <!-- 섹션 5 -->
+        <section class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-5-m.png">
+                <img src="images/pc/h-5.png" alt="섹션 5">
+            </picture>
+        </section>
+
+        <!-- 섹션 6 -->
+        <section class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-6-m.png">
+                <img src="images/pc/h-6.png" alt="섹션 6">
+            </picture>
+        </section>
+
+        <!-- 섹션 7 -->
+        <section class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-7-m.png">
+                <img src="images/pc/h-7.png" alt="섹션 7">
+            </picture>
+        </section>
+
+        <!-- 섹션 8 -->
+        <section class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-8-m.png">
+                <img src="images/pc/h-8.png" alt="섹션 8">
+            </picture>
+        </section>
+
+        <!-- 섹션 9 -->
+        <section class="image-section">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/mob/h-9-m.png">
+                <img src="images/pc/h-9.png" alt="섹션 9">
+            </picture>
+        </section>
+
+        <!-- 문의폼 섹션 -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>문의하기</h2>
+                <div class="form-notice">
+                    <p>허위·중복 문의 방지 및 안전한 상담을 위해 본인인증이 필요합니다.</p>
+                    <p>인증 정보는 상담 완료 후 안전하게 보호됩니다.</p>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <div class="name-field-wrapper">
+                            <label for="name">이름</label>
+                            <div class="name-input-group">
+                                <input type="text" id="name" name="name" required>
+                                <button type="button" class="verify-btn" id="verifyBtn">본인인증</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">연락처</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiryType">문의유형</label>
+                        <select id="inquiryType" name="inquiryType" required>
+                            <option value="">선택해주세요</option>
+                            <option value="basic">베이직</option>
+                            <option value="standard">스탠다드</option>
+                            <option value="premium">프리미엄</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">문의내용</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacyAgree" name="privacyAgree" required>
+                            <span>개인정보 수집 및 이용에 동의합니다. <a href="#" class="privacy-link" id="privacyLink">(내용보기)</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">문의하기</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-container">
+                    <img src="logo.png" alt="케이프로미넌트 디자인" class="footer-logo-img">
+                </div>
+                <div class="footer-info">
+                    <div class="footer-section">
+                        <h4>연락처</h4>
+                        <p>전화: <a href="tel:1877-0994">1877-0994</a></p>
+                        <p>이메일: <a href="mailto:kkpayment@naver.com">kkpayment@naver.com</a></p>
+                        <p>카카오톡: <a href="#" class="kakao-link">카카오톡 상담하기</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>업무시간</h4>
+                        <p>평일 오전 10시 ~ 오후 6시</p>
+                        <p>휴무: 주말, 공휴일</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>회사정보</h4>
+                        <p>등록번호: 102-22-08936</p>
+                        <p>주소: 경기도 고양시 덕양구 충장로2, 7층 708호(행신동, 센트럴빌딩)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 플로팅 버튼 -->
+    <div class="floating-buttons">
+        <a href="tel:1877-0994" class="floating-btn phone-btn" title="전화하기">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </a>
+        <button class="floating-btn top-btn" id="topBtn" title="맨 위로">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- 개인정보 처리방침 모달 -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>개인정보 처리방침</h3>
+                <button class="modal-close" id="closePrivacyModal">&times;</button>
+            </div>
+            <div class="modal-body" id="privacyContent">
+                <h4>1. 개인정보의 수집 및 이용목적</h4>
+                <p>케이프로미넌트 디자인(이하 "회사")은 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
+                
+                <h4>가. 문의 및 상담 서비스 제공</h4>
+                <ul>
+                    <li>문의사항 접수 및 상담 서비스 제공</li>
+                    <li>본인 확인 및 본인인증</li>
+                    <li>허위·중복 문의 방지</li>
+                </ul>
+
+                <h4>2. 수집하는 개인정보의 항목</h4>
+                <p>회사는 문의 및 상담 서비스 제공을 위해 다음과 같은 개인정보를 수집합니다.</p>
+                <ul>
+                    <li>필수항목: 이름, 연락처, 이메일, 문의내용</li>
+                    <li>자동수집항목: IP주소, 쿠키, 접속 로그 등</li>
+                </ul>
+
+                <h4>3. 개인정보의 보유 및 이용기간</h4>
+                <p>회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.</p>
+                <ul>
+                    <li>문의 및 상담 서비스: 상담 완료 후 3년</li>
+                    <li>관련 법령에 따라 보존이 필요한 경우: 해당 법령에서 정한 기간</li>
+                </ul>
+
+                <h4>4. 개인정보의 제3자 제공</h4>
+                <p>회사는 정보주체의 개인정보를 제1조(개인정보의 처리 목적)에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 개인정보 보호법 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.</p>
+
+                <h4>5. 정보주체의 권리·의무 및 그 행사방법</h4>
+                <p>정보주체는 다음과 같은 권리를 행사할 수 있습니다.</p>
+                <ul>
+                    <li>개인정보 열람 요구</li>
+                    <li>개인정보 정정·삭제 요구</li>
+                    <li>개인정보 처리정지 요구</li>
+                </ul>
+                <p>위 권리 행사는 회사에 대해 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 회사는 이에 대해 지체 없이 조치하겠습니다.</p>
+
+                <h4>6. 개인정보의 파기</h4>
+                <p>회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.</p>
+
+                <h4>7. 개인정보 보호책임자</h4>
+                <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+                <ul>
+                    <li>상호: 케이프로미넌트</li>
+                    <li>등록번호: 102-22-08936</li>
+                    <li>주소: 경기도 고양시 덕양구 충장로2, 7층 708호(행신동, 센트럴빌딩)</li>
+                    <li>전화: 1877-0994</li>
+                    <li>이메일: kkpayment@naver.com</li>
+                </ul>
+
+                <h4>8. 개인정보 처리방침 변경</h4>
+                <p>이 개인정보 처리방침은 2024년 1월 1일부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" id="closePrivacyModalBtn">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 본인인증 안내 모달 -->
+    <div class="modal-overlay" id="noticeModal">
+        <div class="modal-content notice-modal">
+            <div class="modal-header">
+                <h3>안내</h3>
+                <button class="modal-close" id="closeNoticeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="notice-content" id="noticeContent">
+                    <p class="auth-notice" id="authNotice" style="display: none; color: var(--brown-primary); font-weight: 600; margin-bottom: 15px;">본인인증이 완료 후 가능한 작업입니다.</p>
+                    <p>해당 기능은 개발이 완료되는 대로 잘 될 것입니다.</p>
+                    <p>개발 완료 전까지는 <strong>전화 문의</strong>로 해주시기 바랍니다.</p>
+                    <p style="margin-top: 20px; color: var(--brown-primary); font-weight: 600;">빠른 시일 내에 완료하여 서비스로 보답하겠습니다.</p>
+                    <div class="notice-phone">
+                        <p>전화번호: <a href="tel:1877-0994">1877-0994</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" id="closeNoticeModalBtn">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
