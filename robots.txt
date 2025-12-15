@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kprominent.shop/sitemap.xml
+
