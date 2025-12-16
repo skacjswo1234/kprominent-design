@@ -34,6 +34,8 @@
         }
     </style>
     <link rel="stylesheet" href="styles.css">
+    <!-- 포트원 결제 SDK -->
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -112,12 +114,40 @@
             </picture>
         </section>
 
-        <!-- 섹션 2 -->
+        <!-- 섹션 2 - 서비스 소개 (결제 단계 포함) -->
         <section id="service" class="image-section">
             <picture>
                 <source media="(max-width: 768px)" srcset="images/mob/h-2-m.png">
                 <img src="images/pc/h-2.png" alt="섹션 2">
             </picture>
+            <div class="payment-steps-container">
+                <div class="container">
+                    <h2 class="payment-steps-title">서비스 단계별 결제</h2>
+                    <div class="payment-steps-grid">
+                        <div class="payment-step-card" data-step="1">
+                            <div class="step-number">1단계</div>
+                            <h3>인테리어 디자인 설계</h3>
+                            <div class="step-price">500,000원</div>
+                            <p class="step-description">공간 분석부터 상세 설계까지</p>
+                            <button class="payment-btn" data-step="1">결제하러 가기</button>
+                        </div>
+                        <div class="payment-step-card" data-step="2">
+                            <div class="step-number">2단계</div>
+                            <h3>인테리어 시공</h3>
+                            <div class="step-price">2,000,000원</div>
+                            <p class="step-description">전문 시공팀의 품질 시공</p>
+                            <button class="payment-btn" data-step="2">결제하러 가기</button>
+                        </div>
+                        <div class="payment-step-card" data-step="3">
+                            <div class="step-number">3단계</div>
+                            <h3>완공 및 사후관리</h3>
+                            <div class="step-price">300,000원</div>
+                            <p class="step-description">완공 점검 및 A/S 서비스</p>
+                            <button class="payment-btn" data-step="3">결제하러 가기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- 섹션 3 -->
@@ -332,6 +362,109 @@
         </div>
     </div>
 
+    <!-- 결제 상세 화면 모달 -->
+    <div class="modal-overlay" id="paymentDetailModal">
+        <div class="modal-content payment-detail-modal">
+            <div class="modal-header">
+                <h3 id="detailModalTitle">결제 상세</h3>
+                <button class="modal-close" id="closePaymentDetailModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-detail-content">
+                    <div class="detail-image-container">
+                        <img id="detailImage" src="" alt="서비스 이미지">
+                    </div>
+                    <div class="detail-info">
+                        <h4 id="detailStepName"></h4>
+                        <div class="detail-price-container">
+                            <span class="detail-price-label">결제 금액</span>
+                            <span class="detail-price" id="detailPrice"></span>
+                        </div>
+                        <div class="detail-description">
+                            <h5>서비스 내용</h5>
+                            <p id="detailDescription"></p>
+                        </div>
+                        <div class="detail-features">
+                            <h5>포함 사항</h5>
+                            <ul id="detailFeatures"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" id="closePaymentDetailBtn">취소</button>
+                <button class="payment-proceed-btn" id="proceedToAuthBtn">결제하기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 본인인증 화면 모달 -->
+    <div class="modal-overlay" id="authModal" onclick="if(event.target===this) closeAuthModalDirect();">
+        <div class="modal-content auth-modal" onclick="event.stopPropagation();">
+            <div class="modal-header">
+                <h3>본인인증</h3>
+                <button type="button" class="modal-close" id="closeAuthModal" onclick="closeAuthModalDirect(); return false;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="auth-content">
+                    <div class="auth-notice-box">
+                        <div class="auth-icon">🔒</div>
+                        <h4>안전한 결제를 위한 본인인증</h4>
+                        <p>결제 진행을 위해 본인인증이 필요합니다.</p>
+                        <p>인증 정보는 안전하게 보호되며, 결제 완료 후 즉시 삭제됩니다.</p>
+                    </div>
+                    <div class="auth-content-wrapper">
+                        <div class="auth-instruction">
+                            <p>결제 진행을 위해 본인인증이 필요합니다.</p>
+                            <p>아래 버튼을 클릭하시면 포트원 본인인증 팝업이 열립니다.</p>
+                            <p class="auth-instruction-note">팝업 창에서 이름, 휴대폰 번호, 생년월일을 입력해주세요.</p>
+                        </div>
+                        <div class="auth-status-container">
+                            <p class="auth-status-message" id="authStatusMessage"></p>
+                            <p class="auth-code-message" id="authCodeMessage"></p>
+                        </div>
+                        <div class="auth-button-container">
+                            <button type="button" class="send-auth-btn" id="sendAuthBtn">본인인증 시작</button>
+                        </div>
+                        <div class="form-group checkbox-group" style="margin-top: 30px;">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="authAgree" name="authAgree" required>
+                                <span>본인인증 및 결제 진행에 동의합니다.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-close-btn" id="closeAuthBtn" onclick="closeAuthModalDirect(); return false;">취소</button>
+                <button class="auth-proceed-btn" id="proceedToPaymentBtn">인증 완료 및 결제 진행</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 결제 화면 모달 -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-content payment-modal">
+            <div class="modal-header">
+                <h3>결제하기</h3>
+                <button class="modal-close" id="closePaymentModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-summary">
+                    <div class="summary-item">
+                        <span class="summary-label">서비스</span>
+                        <span class="summary-value" id="paymentSummaryName"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">결제 금액</span>
+                        <span class="summary-value price" id="paymentSummaryPrice"></span>
+                    </div>
+                </div>
+                <div id="portone-payment-widget" class="portone-widget"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- 본인인증 안내 모달 -->
     <div class="modal-overlay" id="noticeModal">
         <div class="modal-content notice-modal">
@@ -357,6 +490,16 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // 본인인증 모달 닫기 함수 (전역으로 정의하여 HTML에서 직접 호출 가능)
+        function closeAuthModalDirect() {
+            var modal = document.getElementById('authModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
 </body>
 </html>
 

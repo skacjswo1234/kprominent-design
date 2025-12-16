@@ -695,6 +695,9 @@ footer {
     flex-direction: column;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     animation: modalSlideIn 0.3s ease;
+    position: relative;
+    z-index: 2001;
+    pointer-events: auto;
 }
 
 @keyframes modalSlideIn {
@@ -739,6 +742,9 @@ footer {
     border-radius: 50%;
     transition: all 0.3s ease;
     line-height: 1;
+    pointer-events: auto;
+    z-index: 2002;
+    position: relative;
 }
 
 .modal-close:hover {
@@ -800,6 +806,9 @@ footer {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    pointer-events: auto;
+    position: relative;
+    z-index: 2002;
 }
 
 .modal-close-btn:hover {
@@ -890,5 +899,573 @@ footer {
 .notice-phone a:hover {
     color: var(--brown-dark);
     text-decoration: underline;
+}
+
+/* 결제 단계 섹션 */
+.payment-steps-container {
+    background: var(--beige-light);
+    padding: 80px 0;
+    margin-top: 0;
+}
+
+.payment-steps-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.payment-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.payment-step-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.payment-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--brown-primary);
+}
+
+.step-number {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-dark) 100%);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.payment-step-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.step-price {
+    font-size: 2rem;
+    color: var(--brown-primary);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.step-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.payment-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.payment-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+.payment-btn:active {
+    transform: translateY(0);
+}
+
+/* 결제 상세 화면 모달 */
+.payment-detail-modal {
+    max-width: 900px;
+}
+
+.payment-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.detail-image-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--beige-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-info h4 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.detail-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--beige-light);
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.detail-price-label {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.detail-price {
+    font-size: 2rem;
+    color: var(--brown-primary);
+    font-weight: bold;
+}
+
+.detail-description,
+.detail-features {
+    margin-bottom: 25px;
+}
+
+.detail-description h5,
+.detail-features h5 {
+    font-size: 1.2rem;
+    color: var(--brown-primary);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.detail-description p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.detail-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-features li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.detail-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--brown-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.payment-proceed-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.payment-proceed-btn:hover {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 본인인증 모달 */
+.auth-modal {
+    max-width: 600px;
+}
+
+.auth-content {
+    text-align: center;
+}
+
+.auth-notice-box {
+    background: var(--beige-light);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--brown-primary);
+}
+
+.auth-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.auth-notice-box h4 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.auth-notice-box p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.auth-form {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.auth-proceed-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.auth-proceed-btn:disabled {
+    background: var(--beige-medium);
+    color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.auth-proceed-btn:hover {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.auth-proceed-btn:disabled {
+    background: var(--beige-medium);
+    color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 본인인증 입력 필드 그룹 */
+.phone-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.phone-input-group input {
+    flex: 1;
+}
+
+.send-auth-btn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2);
+}
+
+.send-auth-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.send-auth-btn:disabled {
+    background: var(--beige-medium);
+    color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.auth-status-message {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+.auth-status-message.success {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.auth-status-message.error {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.auth-code-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.auth-code-group input {
+    flex: 1;
+}
+
+.auth-timer {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--brown-primary);
+    min-width: 50px;
+    text-align: center;
+}
+
+.auth-timer.warning {
+    color: #dc3545;
+    animation: pulse 1s infinite;
+}
+
+.verify-code-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.verify-code-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.verify-code-btn:disabled {
+    background: var(--beige-medium);
+    color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.auth-code-message {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+.auth-code-message.success {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.auth-code-message.error {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.auth-content-wrapper {
+    text-align: center;
+}
+
+.auth-instruction {
+    background: var(--beige-light);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--brown-primary);
+}
+
+.auth-instruction p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.auth-instruction-note {
+    font-size: 0.9rem !important;
+    color: var(--text-light) !important;
+    font-style: italic;
+    margin-top: 15px !important;
+}
+
+.auth-status-container {
+    min-height: 60px;
+    margin-bottom: 20px;
+}
+
+.auth-button-container {
+    margin: 30px 0;
+}
+
+.send-auth-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, var(--brown-primary) 0%, var(--brown-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.send-auth-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+.send-auth-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .phone-input-group {
+        flex-direction: column;
+    }
+
+    .send-auth-btn {
+        width: 100%;
+    }
+}
+
+/* 결제 모달 */
+.payment-modal {
+    max-width: 600px;
+}
+
+.payment-summary {
+    background: var(--beige-light);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--beige-medium);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.summary-value {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.summary-value.price {
+    font-size: 1.5rem;
+    color: var(--brown-primary);
+}
+
+.portone-widget {
+    min-height: 400px;
+    padding: 20px;
+    background: var(--beige-light);
+    border-radius: 10px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .payment-steps-container {
+        padding: 50px 0;
+    }
+
+    .payment-steps-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .payment-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .payment-step-card {
+        padding: 30px 20px;
+    }
+
+    .payment-detail-content {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-image-container {
+        height: 300px;
+    }
+
+    .auth-modal,
+    .payment-modal {
+        max-width: 95%;
+    }
 }
 
