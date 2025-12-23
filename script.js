@@ -67,8 +67,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
+            
+            // 외부 페이지로 이동하는 링크는 기본 동작 허용
+            if (!targetId.startsWith('#')) {
+                // 모바일 메뉴 닫기
+                const mobileNav = document.getElementById('mobileNav');
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+                
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    mobileNavOverlay.classList.remove('active');
+                }
+                return; // 기본 동작(페이지 이동) 허용
+            }
+            
+            // 같은 페이지 내 앵커 링크인 경우에만 스크롤 처리
+            e.preventDefault();
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
@@ -269,14 +286,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const paymentModal = document.getElementById('paymentModal');
     const closePaymentModal = document.getElementById('closePaymentModal');
 
-    // 결제하러 가기 버튼 클릭 이벤트
-    document.querySelectorAll('.payment-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const step = parseInt(this.getAttribute('data-step'));
-            currentPaymentStep = step;
-            showPaymentDetail(step);
-        });
-    });
+    // 결제 버튼은 이제 상품 페이지로 이동하는 링크로 변경되었습니다.
+    // 이벤트 리스너는 더 이상 필요하지 않습니다.
 
     // 결제 상세 화면 표시
     function showPaymentDetail(step) {

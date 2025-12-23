@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="케이프로미넌트 디자인 - 인테리어 디자인 상품. 사무실, 상가, 아파트, 주택 디자인 서비스.">
+    <title>디자인 상품 - 케이프로미넌트 디자인</title>
+    <style>
+        @font-face {
+            font-family: 'Gmarket Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans@1.0.0/GmarketSans-Bold.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans@1.0.0/GmarketSans-Bold.woff') format('woff');
+            font-display: swap;
+        }
+        * {
+            font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif !important;
+            font-weight: 700 !important;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 포트원 결제 SDK -->
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+</head>
+<body>
+    <h1 class="visually-hidden">디자인 상품 - 케이프로미넌트 디자인</h1>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="logo.png" alt="케이프로미넌트 디자인" class="logo-img">
+                    </a>
+                </div>
+                <nav class="desktop-nav">
+                    <a href="index.html#home" class="nav-link">홈</a>
+                    <a href="index.html#service" class="nav-link">서비스소개</a>
+                    <a href="index.html#contact" class="nav-link">문의하기</a>
+                    <a href="product.html" class="nav-link active">디자인 상품</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <!-- 모바일 메뉴 -->
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-logo">
+                <img src="logo.png" alt="케이프로미넌트 디자인" class="mobile-logo-img">
+            </div>
+            <a href="index.html#home" class="mobile-nav-link">홈</a>
+            <a href="index.html#service" class="mobile-nav-link">서비스소개</a>
+            <a href="index.html#contact" class="mobile-nav-link">문의하기</a>
+            <a href="product.html" class="mobile-nav-link active">디자인 상품</a>
+        </nav>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    </header>
+
+    <main>
+        <!-- 상품 섹션 -->
+        <section class="product-section">
+            <div class="container">
+                <h2 class="product-section-title">인테리어 디자인 상품</h2>
+                <p class="product-section-subtitle">공간의 크기에 맞는 맞춤형 디자인 서비스를 제공합니다.</p>
+
+                <!-- 사무실/상가 디자인 -->
+                <div class="product-category">
+                    <h3 class="product-category-title">사무실·상가 디자인</h3>
+                    <div class="product-grid">
+                        <div class="product-card" data-category="office" data-size="10-20" data-price="500000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">10평~20평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">500,000원</div>
+                                <p class="product-description">소규모 사무실 및 상가 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="office" data-size="30-40" data-price="800000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">30평~40평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">800,000원</div>
+                                <p class="product-description">중규모 사무실 및 상가 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="office" data-size="50-60" data-price="1000000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">50평~60평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">1,000,000원</div>
+                                <p class="product-description">대규모 사무실 및 상가 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                    <li>가구 배치 계획</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="office" data-size="70+" data-price="1500000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">70평대 이상</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">1,500,000원</div>
+                                <p class="product-description">초대규모 사무실 및 상가 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                    <li>가구 배치 계획</li>
+                                    <li>브랜드 아이덴티티 반영</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 아파트/주택 디자인 -->
+                <div class="product-category">
+                    <h3 class="product-category-title">아파트·주택 디자인</h3>
+                    <div class="product-grid">
+                        <div class="product-card" data-category="residential" data-size="10" data-price="500000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">10평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">500,000원</div>
+                                <p class="product-description">원룸 및 소형 주거 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="residential" data-size="20" data-price="700000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">20평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">700,000원</div>
+                                <p class="product-description">소형 아파트 및 주택 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="residential" data-size="30" data-price="1000000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">30평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">1,000,000원</div>
+                                <p class="product-description">중형 아파트 및 주택 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                    <li>가구 배치 계획</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="residential" data-size="40" data-price="1200000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">40평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">1,200,000원</div>
+                                <p class="product-description">중대형 아파트 및 주택 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                    <li>가구 배치 계획</li>
+                                    <li>라이프스타일 분석</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="residential" data-size="50" data-price="1500000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">50평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">1,500,000원</div>
+                                <p class="product-description">대형 아파트 및 주택 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                    <li>가구 배치 계획</li>
+                                    <li>라이프스타일 분석</li>
+                                    <li>컨셉 기획 (2안)</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="residential" data-size="60" data-price="2000000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">60평대</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">2,000,000원</div>
+                                <p class="product-description">초대형 아파트 및 주택 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                    <li>가구 배치 계획</li>
+                                    <li>라이프스타일 분석</li>
+                                    <li>컨셉 기획 (3안)</li>
+                                    <li>수정 작업 3회 포함</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="residential" data-size="70+" data-price="3000000">
+                            <div class="product-card-header">
+                                <h4 class="product-card-title">70평대 이상</h4>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-price">3,000,000원</div>
+                                <p class="product-description">프리미엄 주택 및 펜트하우스 공간 디자인</p>
+                                <ul class="product-features">
+                                    <li>공간 분석 및 설계</li>
+                                    <li>평면도 및 입면도</li>
+                                    <li>3D 시뮬레이션</li>
+                                    <li>자재 제안</li>
+                                    <li>조명 계획</li>
+                                    <li>가구 배치 계획</li>
+                                    <li>라이프스타일 분석</li>
+                                    <li>컨셉 기획 (3안)</li>
+                                    <li>수정 작업 무제한</li>
+                                    <li>프리미엄 컨설팅</li>
+                                </ul>
+                            </div>
+                            <div class="product-card-footer">
+                                <button class="product-payment-btn">결제하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-container">
+                    <img src="logo.png" alt="케이프로미넌트 디자인" class="footer-logo-img">
+                </div>
+                <div class="footer-info">
+                    <div class="footer-section">
+                        <h4>연락처</h4>
+                        <p>전화: <a href="tel:1877-0994">1877-0994</a></p>
+                        <p>이메일: <a href="mailto:kkpayment@naver.com">kkpayment@naver.com</a></p>
+                        <p>카카오톡: <a href="#" class="kakao-link">카카오톡 상담하기</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>업무시간</h4>
+                        <p>평일 오전 10시 ~ 오후 6시</p>
+                        <p>휴무: 주말, 공휴일</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>회사정보</h4>
+                        <p>등록번호: 102-22-08936</p>
+                        <p>주소: 경기도 고양시 덕양구 충장로2, 7층 708호(행신동, 센트럴빌딩)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 플로팅 버튼 -->
+    <div class="floating-buttons">
+        <a href="tel:1877-0994" class="floating-btn phone-btn" title="전화하기">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </a>
+        <button class="floating-btn top-btn" id="topBtn" title="맨 위로">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- 본인인증 화면 모달 -->
+    <div class="modal-overlay" id="authModal" onclick="if(event.target===this) closeAuthModalDirect();">
+        <div class="modal-content auth-modal" onclick="event.stopPropagation();">
+            <div class="modal-header">
+                <h3>본인인증</h3>
+                <button type="button" class="modal-close" id="closeAuthModal" onclick="closeAuthModalDirect(); return false;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="auth-content">
+                    <div class="auth-notice-box">
+                        <div class="auth-icon">🔒</div>
+                        <h4>안전한 결제를 위한 본인인증</h4>
+                        <p>결제 진행을 위해 본인인증이 필요합니다.</p>
+                        <p>인증 정보는 안전하게 보호되며, 결제 완료 후 즉시 삭제됩니다.</p>
+                    </div>
+                    <div class="auth-content-wrapper">
+                        <div class="auth-instruction">
+                            <p>결제 진행을 위해 본인인증이 필요합니다.</p>
+                            <p>아래 버튼을 클릭하시면 포트원 본인인증 팝업이 열립니다.</p>
+                            <p class="auth-instruction-note">팝업 창에서 이름, 휴대폰 번호, 생년월일을 입력해주세요.</p>
+                        </div>
+                        <div class="auth-status-container">
+                            <p class="auth-status-message" id="authStatusMessage"></p>
+                            <p class="auth-code-message" id="authCodeMessage"></p>
+                        </div>
+                        <div class="auth-button-container">
+                            <button type="button" class="send-auth-btn" id="sendAuthBtn">본인인증 시작</button>
+                        </div>
+                        <div class="form-group checkbox-group" style="margin-top: 30px;">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="authAgree" name="authAgree" required>
+                                <span>본인인증 및 결제 진행에 동의합니다.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-close-btn" id="closeAuthBtn" onclick="closeAuthModalDirect(); return false;">취소</button>
+                <button class="auth-proceed-btn" id="proceedToPaymentBtn">인증 완료 및 결제 진행</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 결제 화면 모달 -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-content payment-modal">
+            <div class="modal-header">
+                <h3>결제하기</h3>
+                <button class="modal-close" id="closePaymentModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-summary">
+                    <div class="summary-item">
+                        <span class="summary-label">서비스</span>
+                        <span class="summary-value" id="paymentSummaryName"></span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">결제 금액</span>
+                        <span class="summary-value price" id="paymentSummaryPrice"></span>
+                    </div>
+                </div>
+                <div id="portone-payment-widget" class="portone-widget"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 결제 성공 모달 -->
+    <div class="modal-overlay" id="paymentSuccessModal">
+        <div class="modal-content notice-modal">
+            <div class="modal-header">
+                <h3>결제 완료</h3>
+                <button class="modal-close" id="closePaymentSuccessModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="notice-content" style="text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 20px; color: #28a745;">✓</div>
+                    <h4 style="color: var(--brown-primary); margin-bottom: 15px;">결제가 성공적으로 완료되었습니다!</h4>
+                    <p style="color: var(--text-light); line-height: 1.8;">
+                        결제 내역은 이메일로 발송됩니다.<br>
+                        문의사항이 있으시면 전화로 연락주세요.
+                    </p>
+                    <div style="margin-top: 30px; padding: 20px; background: var(--beige-light); border-radius: 10px;">
+                        <p style="margin: 0; color: var(--text-dark);">
+                            전화번호: <a href="tel:1877-0994" style="color: var(--brown-primary); font-weight: bold;">1877-0994</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" id="closePaymentSuccessBtn">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PG사 심사 안내 모달 -->
+    <div class="modal-overlay" id="pgNoticeModal">
+        <div class="modal-content notice-modal">
+            <div class="modal-header">
+                <h3>안내</h3>
+                <button class="modal-close" id="closePgNoticeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="notice-content" style="text-align: center;">
+                    <p style="color: var(--text-dark); font-size: 1.1rem; line-height: 1.8; margin: 20px 0;">
+                        현재 PG사 심사요청중이므로<br>
+                        서비스개발완료되는데로 좋은서비스로 보답드리겠습니다.<br>
+                        감사합니다.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn" id="closePgNoticeBtn">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="product.js"></script>
+    <script>
+        // 본인인증 모달 닫기 함수 (전역으로 정의하여 HTML에서 직접 호출 가능)
+        function closeAuthModalDirect() {
+            var modal = document.getElementById('authModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>
+
