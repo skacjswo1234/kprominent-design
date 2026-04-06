@@ -1717,3 +1717,80 @@ footer {
     }
 }
 
+/* 회원가입 / 로그인 */
+.auth-page-main {
+    min-height: 55vh;
+    padding: 40px 0 80px;
+}
+
+.auth-section {
+    padding: 20px 0;
+}
+
+.auth-card {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--beige-light);
+    border-radius: 12px;
+    padding: 36px 28px;
+    box-shadow: 0 4px 24px rgba(62, 39, 35, 0.08);
+}
+
+.auth-title {
+    font-size: 1.75rem;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.auth-lead {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.auth-form.auth-form {
+    margin-top: 8px;
+}
+
+.auth-submit {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.auth-message {
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.auth-message--error {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.auth-message--ok {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.auth-switch {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.auth-switch a {
+    color: var(--brown-primary);
+    text-decoration: underline;
+}
+
+.auth-switch a:hover {
+    color: var(--brown-dark);
+}
+

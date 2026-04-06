@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="케이프로미넌트 디자인 - 로그인">
+    <meta name="robots" content="noindex, nofollow">
+    <title>로그인 - 케이프로미넌트 디자인</title>
+    <style>
+        @font-face {
+            font-family: 'Gmarket Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans@1.0.0/GmarketSans-Bold.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans@1.0.0/GmarketSans-Bold.woff') format('woff');
+            font-display: swap;
+        }
+        * {
+            font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif !important;
+            font-weight: 700 !important;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="visually-hidden">로그인 - 케이프로미넌트 디자인</h1>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="logo.png" alt="케이프로미넌트 디자인" class="logo-img">
+                    </a>
+                </div>
+                <nav class="desktop-nav">
+                    <a href="index.html#home" class="nav-link">홈</a>
+                    <a href="index.html#service" class="nav-link">서비스소개</a>
+                    <a href="index.html#contact" class="nav-link">문의하기</a>
+                    <a href="product.html" class="nav-link">디자인 상품</a>
+                    <a href="signup.html" class="nav-link">회원가입</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-logo">
+                <img src="logo.png" alt="케이프로미넌트 디자인" class="mobile-logo-img">
+            </div>
+            <a href="index.html#home" class="mobile-nav-link">홈</a>
+            <a href="index.html#service" class="mobile-nav-link">서비스소개</a>
+            <a href="index.html#contact" class="mobile-nav-link">문의하기</a>
+            <a href="product.html" class="mobile-nav-link">디자인 상품</a>
+            <a href="signup.html" class="mobile-nav-link">회원가입</a>
+        </nav>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    </header>
+
+    <main class="auth-page-main">
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-card">
+                    <h2 class="auth-title">로그인</h2>
+                    <p class="auth-lead">가입하신 아이디로 로그인해 디자인 상품을 이용하세요.</p>
+                    <p id="authMessage" class="auth-message" role="alert" hidden></p>
+                    <form id="loginForm" class="contact-form auth-form" novalidate>
+                        <div class="form-group">
+                            <label for="userId">아이디</label>
+                            <input type="text" id="userId" name="userId" autocomplete="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">비밀번호</label>
+                            <input type="password" id="password" name="password" autocomplete="current-password" required>
+                        </div>
+                        <button type="submit" class="submit-btn auth-submit" id="loginSubmit">로그인</button>
+                    </form>
+                    <p class="auth-switch">아직 계정이 없으신가요? <a href="signup.html">회원가입</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Cloudflare Pages + D1 (대시보드의 DB 이름: kprominent-design-db)
+name = "kprominent-design"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "KPROMINENT_DESIGN_DB"
+database_name = "kprominent-design-db"
+database_id = "97564400-d283-450a-a8ad-3f12c3ad1017"
