@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS users (
   created_at INTEGER NOT NULL DEFAULT (unixepoch())
 );
 
-CREATE INDEX IF NOT EXISTS idx_users_user_id ON users(user_id);
+CREATE INDEX IF NOT EXISTS idx_users_user_id ON users(user_id); 
